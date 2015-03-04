@@ -9,3 +9,4 @@ This application uses the `google/golang` container obtained from the [Docker Hu
 
 ---
 Sign up for wercker [here](http://wercker.com)
+Learn more on our [dev center](http://devcenter.wercker.com)

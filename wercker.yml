@@ -1,4 +1,11 @@
-box: google/golang
+box: golang
+dev:
+  steps:
+    - internal/watch:
+        code: |
+          go build ./...
+          ./source
+        reload: true
 # Build definition
 build:
   # The steps that will be executed on build

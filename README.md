@@ -7,7 +7,25 @@ A sample application in Go for wercker.
 
 This application uses the `google/golang` container obtained from the [Docker Hub](https://registry.hub.docker.com/u/google/golang/)
 
-Once you have all that set up, you can start the application by running `wercker dev --expose-ports`.
+## Setup, Build and Run
+Clone this repo and cd into the directory:
+
+```
+> git clone git@github.com:wercker/getting-started-golang.git
+> cd getting-started-golang
+```
+
+then build and launch the executable:
+
+```
+> go build
+> ./getting-started-golang
+```
+
+Now point your browser at `http://localhost:5000/cities.json` to see:
+```
+"{'cities':'San Francisco', 'Amsterdam', 'Berlin', 'New York', 'Tokyo'}"
+```
 
 ---
 Sign up for wercker [here](http://wercker.com)

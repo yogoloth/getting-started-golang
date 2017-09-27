@@ -16,17 +16,38 @@ cd getting-started-golang
 ```
 
 then build the executable:
-
-## Setup & Build
-
 ```
 go build
+```
+
+## Running
+You can run the executable in a couple of different ways. The first is to simply launch the executable:
+```
 ./getting-started-golang
 ```
 
-Now point your browser at `http://localhost:5000/cities.json` to see:
+Now point your browser at `http://localhost:5000` to see:
+```
+Hello World!
+```
+or at `http://localhost:5000/cities.json` to see:
 ```
 "{'cities':'San Francisco', 'Amsterdam', 'Berlin', 'New York', 'Tokyo'}"
+```
+
+The second is to use the
+```
+wercker dev --expose-ports
+```
+command to launch the binary within a Docker container, using the base image defined in the `box/id` property at the top of the `wercker.yml`. The `dev` target inside `wercker.yml` uses the `internal/watch` step to dynamically reload the runtime container when sourcefile changes are detected, which allows you to quickly test changes without having to kill/rebuild/relaunch the container. So for instance, add another city to the array on `main.go/10' like so:
+
+```
+data, _ := json.Marshal("{'cities':'San Francisco', 'Amsterdam', 'Berlin', 'New York', 'Tokyo', 'London'}")
+```
+
+and then refresh your browser pointing to `http://localhost:5000/cities.json` to see:
+```
+"{'cities':'San Francisco', 'Amsterdam', 'Berlin', 'New York', 'Tokyo', 'London'}"
 ```
 
 ---

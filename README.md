@@ -7,19 +7,21 @@ A sample application in Go for wercker.
 
 This application uses the `google/golang` container obtained from the [Docker Hub](https://registry.hub.docker.com/u/google/golang/)
 
-## Setup, Build and Run
+## Setup & Build
 Clone this repo and cd into the directory:
 
 ```
-> git clone git@github.com:wercker/getting-started-golang.git
-> cd getting-started-golang
+git clone https://github.com/wercker/getting-started-golang.git
+cd getting-started-golang
 ```
 
-then build and launch the executable:
+then build the executable:
+
+## Setup & Build
 
 ```
-> go build
-> ./getting-started-golang
+go build
+./getting-started-golang
 ```
 
 Now point your browser at `http://localhost:5000/cities.json` to see:
@@ -28,5 +30,5 @@ Now point your browser at `http://localhost:5000/cities.json` to see:
 ```
 
 ---
-Sign up for wercker [here](http://wercker.com)
-Learn more on our [dev center](http://devcenter.wercker.com)
+Sign up for wercker: http://www.wercker.com
+Learn more at: http://devcenter.wercker.com

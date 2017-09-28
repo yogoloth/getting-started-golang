@@ -39,7 +39,7 @@ The second, and more useful, way is to use the `wercker dev` command to launch t
 ```
 wercker dev --expose-ports
 ```
-The `dev` target inside `wercker.yml` uses the `internal/watch` step to dynamically reload the runtime container when sourcefile changes are detected, which allows you to quickly test changes without having to kill/rebuild/relaunch the container. For instance, add another city to the array on `main.go/15' like so:
+The `dev` target inside `wercker.yml` uses the `internal/watch` step to dynamically reload the runtime container when sourcefile changes are detected, which allows you to quickly test changes without having to kill/rebuild/relaunch the container. For instance, add another city to the array on `main.go/15` like so:
 
 ```
 Cities: []string{"San Francisco", "Amsterdam", "Berlin", "New York", "Tokyo", "London"},

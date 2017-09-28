@@ -6,16 +6,29 @@ import (
 	"net/http"
 )
 
-func CityHandler(res http.ResponseWriter, req *http.Request) {
-	data, _ := json.Marshal("{'cities':'San Francisco', 'Amsterdam', 'Berlin', 'New York','Tokyo'}")
+type citiesResponse struct {
+	Cities []string `json:"cities"` // Cities capitalised to export it, otherwise json encoder will ignore it.
+}
+
+func cityHandler(res http.ResponseWriter, req *http.Request) {
+	cities := citiesResponse{
+		Cities: []string{"San Francisco", "Amsterdam", "Berlin", "New York", "Tokyo"}}
+
 	res.Header().Set("Content-Type", "application/json; charset=utf-8")
-	res.Write(data)
+	json.NewEncoder(res).Encode(cities)
+
+}
+
+func defaultHandler(res http.ResponseWriter, req *http.Request) {
+	res.Header().Set("Content-Type", "text/plain; charset=utf-8")
+	res.Write([]byte("Hello World!"))
 }
 
 func main() {
-	http.HandleFunc("/cities.json", CityHandler)
+	http.HandleFunc("/", defaultHandler)
+	http.HandleFunc("/cities.json", cityHandler)
 	err := http.ListenAndServe(":5000", nil)
 	if err != nil {
-		log.Fatal("ListenAndServe: ", err)
+		log.Fatal("Unable to listen on port 5000 : ", err)
 	}
 }

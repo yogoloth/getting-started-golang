@@ -16,7 +16,6 @@ func cityHandler(res http.ResponseWriter, req *http.Request) {
 
 	res.Header().Set("Content-Type", "application/json; charset=utf-8")
 	json.NewEncoder(res).Encode(cities)
-
 }
 
 func defaultHandler(res http.ResponseWriter, req *http.Request) {

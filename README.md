@@ -31,7 +31,7 @@ Hello World!
 ```
 or at `http://localhost:5000/cities.json` to see:
 ```
-{"cities":["San Francisco","Amsterdam","Berlin","New York","Tokyo"]}
+{"cities":["Amsterdam","Berlin","New York","San Francisco","Tokyo"]}
 ```
 
 The second, and more useful, way is to use the `wercker dev` command to launch the binary within a Docker container, using the base image defined in the `box/id` property at the top of the `wercker.yml`, like so:
@@ -41,12 +41,12 @@ wercker dev --expose-ports
 The `dev` target inside `wercker.yml` uses the `internal/watch` step to dynamically reload the runtime container when sourcefile changes are detected, which allows you to quickly test changes without having to kill/rebuild/relaunch the container. For instance, add another city to the array on `main.go:15` like so:
 
 ```
-Cities: []string{"San Francisco", "Amsterdam", "Berlin", "New York", "Tokyo", "London"},
+Cities: []string{"Amsterdam","Berlin","New York","San Francisco","Tokyo","London"},
 ```
 
 and then refresh your browser pointing to `http://localhost:5000/cities.json` to see:
 ```
-{"cities":["San Francisco","Amsterdam","Berlin","New York","Tokyo","London"]}}
+{"cities":["Amsterdam","Berlin","New York","San Francisco","Tokyo","London"]}}
 ```
 
 ---

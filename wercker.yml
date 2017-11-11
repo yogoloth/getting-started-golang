@@ -23,7 +23,7 @@ build:
     - script:
         name: go build
         code: |
-          go build -o hello-world ./...
+          go build ./...
 
     # Test the project
     - script:
